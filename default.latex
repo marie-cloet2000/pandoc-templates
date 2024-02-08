@@ -466,7 +466,7 @@ $endif$
   pdfcreator={LaTeX via pandoc}}
 
 $if(title)$
-\title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
+\title[$short-title$]{$title$$if(thanks)$\thanks{$thanks$}$endif$}
 $endif$
 $if(subtitle)$
 $if(beamer)$
@@ -480,7 +480,7 @@ $else$
 $endif$
 \subtitle{$subtitle$}
 $endif$
-\author{$for(author)$$author$$sep$ \and $endfor$}
+\author[$short-author$]{$for(author)$$author$$sep$ \and $endfor$}
 \date{$date$}
 $if(beamer)$
 $if(institute)$
@@ -500,7 +500,9 @@ $if(has-frontmatter)$
 $endif$
 $if(title)$
 $if(beamer)$
-\frame{\titlepage}
+\begin{frame}[plain,noframenumbering]
+    \titlepage
+\end{frame}
 $else$
 \maketitle
 $endif$
